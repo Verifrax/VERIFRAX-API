@@ -1,0 +1,16 @@
+{
+  "version": "v1",
+  "system": "Verifrax",
+  "engine": "CineLint",
+  "issued_at": "2025-12-27T17:11:56.519Z",
+  "artifact_hash": "ebb96c8987d588fd37cd54c81d80e9c40492ed1f3472e6a92dae435f7a896830",
+  "meta": {
+    "engine": "Verifrax",
+    "core": "CineLint",
+    "compiler": "tsc",
+    "moduleResolution": "Bundler",
+    "language": "TypeScript",
+    "deterministic": true
+  },
+  "certificate_hash": "ea98f86160671c2f961a3cfa781c9be21678c689af8e186bb193487c9c6f9f68"
+}

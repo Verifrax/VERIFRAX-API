@@ -1,0 +1,24 @@
+{
+  "name": "@verifrax/root",
+  "private": true,
+  "packageManager": "pnpm@9.0.0",
+  "scripts": {
+    "ci": "pnpm -r test && pnpm -r lint",
+    "build": "pnpm -r --if-present build",
+    "build:ci": "pnpm -r --if-present build || true",
+    "build:strict": "pnpm -r --if-present build",
+    "test": "pnpm -r --if-present test",
+    "lint": "pnpm -r --if-present lint"
+  },
+  "devDependencies": {
+    "@types/node": "25",
+    "@vercel/ncc": "^0.38.4",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@sigstore/verify": "3.0.0"
+  },
+  "bin": {
+    "verifrax-seal": "scripts/verifrax-seal.js"
+  }
+}
