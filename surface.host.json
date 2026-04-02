@@ -4,7 +4,7 @@
   "hostClass": "tool",
   "role": "api",
   "title": "VERIFRAX API",
-  "description": "Canonical API source for api.verifrax.net. Execution surface only.",
+  "description": "Canonical repository for api.verifrax.net. Current live binding is a static boundary page; execution contract endpoints are not yet live here.",
   "deployMode": "preview-only",
   "adjacentHosts": {
     "Execution": "https://api.verifrax.net",
