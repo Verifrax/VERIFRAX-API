@@ -5,7 +5,7 @@
   "role": "api",
   "title": "VERIFRAX API",
   "description": "Canonical repository for api.verifrax.net. Current live binding is a static boundary page; execution contract endpoints are not yet live here.",
-  "deployMode": "preview-only",
+  "deployMode": "static-root",
   "adjacentHosts": {
     "Execution": "https://api.verifrax.net",
     "Proof publication": "https://proof.verifrax.net",
