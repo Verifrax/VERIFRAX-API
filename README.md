@@ -6,8 +6,8 @@ Canonical repository for `api.verifrax.net`.
 
 - Repository role: API host implementation surface
 - Public host ownership: `https://api.verifrax.net/`
-- Current live host binding: static GitHub Pages-backed boundary page on the custom domain
-- Current contract status: `/healthz`, `/readyz`, `/version`, and `/openapi.json` are not live on the current host binding
+- Current live host binding: static GitHub Pages-backed boundary page plus live machine contract files on the custom domain
+- Current contract status: `/healthz`, `/readyz`, `/version`, and `/openapi.json` are live on the current host binding
 - Implementation status: `wrangler.toml` and Worker-oriented runtime material exist in the repository, but they are not the current live host truth
 - Package status: repository-private root workspace
 - License: Apache License Version 2.0
@@ -47,13 +47,13 @@ It is also not allowed to claim:
 
 ## Current live boundary
 
-The current live root at `https://api.verifrax.net/` serves a static boundary page.
+The current live root at `https://api.verifrax.net/` serves a static boundary page and live machine contract files.
 
 That current live host truth means:
 
 - the root host is reachable
 - the custom domain is live
-- the current host is not yet serving the declared machine contract paths
+- the current host is serving the declared machine contract paths
 - repository truth must follow that current host state until deployment truth changes
 
 ## Contract boundary
@@ -65,7 +65,7 @@ The intended API contract includes these paths:
 - `/version`
 - `/openapi.json`
 
-Those paths must not be described here as live contract surfaces until the live host actually serves them successfully.
+Those paths are live contract surfaces and must remain served successfully by the live host.
 
 ## Implementation boundary
 
