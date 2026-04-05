@@ -43,6 +43,19 @@ jobs:
           test -f dist/assets/surface.css
           grep -Fx "api.verifrax.net" dist/CNAME
 
+      - name: Materialize machine contract files
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp healthz dist/healthz
+          cp readyz dist/readyz
+          cp version dist/version
+          cp openapi.json dist/openapi.json
+          test -f dist/healthz
+          test -f dist/readyz
+          test -f dist/version
+          test -f dist/openapi.json
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
