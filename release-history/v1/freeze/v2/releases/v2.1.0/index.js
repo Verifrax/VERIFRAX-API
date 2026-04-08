@@ -144,68 +144,6 @@ export default {
           headers: { "Content-Type": "application/json; charset=UTF-8" }
         })
       );
-    },
-    \"/readyz\": {
-      \"get\": {
-        \"operationId\": \"readyz\",
-        \"responses\": {
-          \"200\": {
-            \"description\": \"readiness\",
-            \"content\": {
-              \"application/json\": {
-                \"schema\": {
-                  \"type\": \"object\",
-                  \"properties\": {
-                    \"status\": { \"type\": \"string\" },
-                    \"surface\": { \"type\": \"string\" },
-                    \"role\": { \"type\": \"string\" },
-                    \"live\": { \"type\": \"boolean\" }
-                  },
-                  \"required\": [\"status\",\"surface\",\"role\",\"live\"]
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    \"/version\": {
-      \"get\": {
-        \"operationId\": \"version\",
-        \"responses\": {
-          \"200\": {
-            \"description\": \"version\",
-            \"content\": {
-              \"text/plain\": {
-                \"schema\": { \"type\": \"string\" }
-              }
-            }
-          }
-        }
-      }
-    },
-    \"/openapi.json\": {
-      \"get\": {
-        \"operationId\": \"openapi\",
-        \"responses\": {
-          \"200\": {
-            \"description\": \"OpenAPI document\",
-            \"content\": {
-              \"application/json\": {
-                \"schema\": { \"type\": \"object\" }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}",
-        withExecutionHeaders({
-          status: 200,
-          headers: { "Content-Type": "application/json; charset=UTF-8" }
-        })
-      );
     }
 
     // Create payment intent endpoint
