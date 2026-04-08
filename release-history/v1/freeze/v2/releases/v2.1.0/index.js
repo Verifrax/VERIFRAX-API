@@ -36,8 +36,7 @@ export default {
 
     if (path === "/version" && method === "GET") {
       return new Response(
-        "0.0.0
-",
+        "0.0.0\\n",
         withExecutionHeaders({
           status: 200,
           headers: { "Content-Type": "text/plain; charset=UTF-8" }
@@ -46,41 +45,105 @@ export default {
     }
 
     if (path === "/openapi.json" && method === "GET") {
-      return new Response(
-        "{
-  \"openapi\": \"3.1.0\",
-  \"info\": {
-    \"title\": \"VERIFRAX API\",
-    \"version\": \"0.0.0\",
-    \"description\": \"Canonical execution API surface for api.verifrax.net\"
-  },
-  \"servers\": [
-    { \"url\": \"https://api.verifrax.net\" }
-  ],
-  \"paths\": {
-    \"/healthz\": {
-      \"get\": {
-        \"operationId\": \"healthz\",
-        \"responses\": {
-          \"200\": {
-            \"description\": \"health\",
-            \"content\": {
-              \"application/json\": {
-                \"schema\": {
-                  \"type\": \"object\",
-                  \"properties\": {
-                    \"status\": { \"type\": \"string\" },
-                    \"surface\": { \"type\": \"string\" },
-                    \"role\": { \"type\": \"string\" },
-                    \"live\": { \"type\": \"boolean\" }
-                  },
-                  \"required\": [\"status\",\"surface\",\"role\",\"live\"]
+      const openapi = {
+        openapi: "3.1.0",
+        info: {
+          title: "VERIFRAX API",
+          version: "0.0.0",
+          description: "Canonical execution API surface for api.verifrax.net"
+        },
+        servers: [
+          { url: "https://api.verifrax.net" }
+        ],
+        paths: {
+          "/healthz": {
+            get: {
+              operationId: "healthz",
+              responses: {
+                "200": {
+                  description: "health",
+                  content: {
+                    "application/json": {
+                      schema: {
+                        type: "object",
+                        properties: {
+                          status: { type: "string" },
+                          surface: { type: "string" },
+                          role: { type: "string" },
+                          live: { type: "boolean" }
+                        },
+                        required: ["status", "surface", "role", "live"]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "/readyz": {
+            get: {
+              operationId: "readyz",
+              responses: {
+                "200": {
+                  description: "readiness",
+                  content: {
+                    "application/json": {
+                      schema: {
+                        type: "object",
+                        properties: {
+                          status: { type: "string" },
+                          surface: { type: "string" },
+                          role: { type: "string" },
+                          live: { type: "boolean" }
+                        },
+                        required: ["status", "surface", "role", "live"]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "/version": {
+            get: {
+              operationId: "version",
+              responses: {
+                "200": {
+                  description: "version",
+                  content: {
+                    "text/plain": {
+                      schema: { type: "string" }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "/openapi.json": {
+            get: {
+              operationId: "openapi",
+              responses: {
+                "200": {
+                  description: "OpenAPI document",
+                  content: {
+                    "application/json": {
+                      schema: { type: "object" }
+                    }
+                  }
                 }
               }
             }
           }
         }
-      }
+      };
+
+      return new Response(
+        JSON.stringify(openapi, null, 2),
+        withExecutionHeaders({
+          status: 200,
+          headers: { "Content-Type": "application/json; charset=UTF-8" }
+        })
+      );
     },
     \"/readyz\": {
       \"get\": {
