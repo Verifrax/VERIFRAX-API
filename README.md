@@ -96,4 +96,15 @@ Do not read runtime implementation intent as equivalent to current live host sta
 
 ## License
 
-Apache License Version 2.0
+Apache License Version 2.0\n\n
+## Live contract
+
+Canonical live endpoints:
+
+- `GET https://api.verifrax.net/healthz`
+- `GET https://api.verifrax.net/readyz`
+- `GET https://api.verifrax.net/version`
+- `GET https://api.verifrax.net/openapi.json`
+
+These endpoints are live on the current host binding.
+\n
