@@ -11,6 +11,13 @@ REQUIRED_PUBLIC_PATHS = {
     "/healthz",
     "/readyz",
     "/version",
+    "/api/upload",
+    "/api/verify",
+    "/api/capabilities",
+    "/api/law",
+    "/api/state",
+    "/api/receipt/example-0001",
+    "/api/verdict/example-0001",
     "/openapi.json",
 }
 

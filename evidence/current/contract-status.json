@@ -1,7 +1,7 @@
 {
   "host": "api.verifrax.net",
   "surface_class": "execution_api",
-  "checked_at": "2026-04-09T07:42:55Z",
+  "checked_at": "2026-04-09T19:24:11Z",
   "binding_status": "live",
   "checked_endpoints": {
     "/healthz": {
@@ -36,6 +36,13 @@
       "title": "VERIFRAX API",
       "server_url": "https://api.verifrax.net",
       "required_public_paths_present": [
+        "/api/capabilities",
+        "/api/law",
+        "/api/receipt/example-0001",
+        "/api/state",
+        "/api/upload",
+        "/api/verdict/example-0001",
+        "/api/verify",
         "/healthz",
         "/openapi.json",
         "/readyz",
@@ -44,5 +51,5 @@
     }
   },
   "overall_status": "pass",
-  "evidence_sha256": "d1292666f725fc5128bf33eb5cf45599e54c6cb6af4bdde17957ed57d072ee7b"
+  "evidence_sha256": "49ef782c76bc8733ea7e550e33bfd89f88884d63a4a563f6a2affd50d8fb5278"
 }
