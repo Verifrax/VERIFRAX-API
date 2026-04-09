@@ -1,1 +1,6 @@
-0.0.0
+{
+  "runtime": "verifrax-edge",
+  "verifier_version": "2.2.0",
+  "payment_status": "enabled",
+  "api_contract_version": "2.2.0"
+}

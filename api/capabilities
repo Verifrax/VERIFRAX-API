@@ -1,0 +1,20 @@
+{
+  "surface": "api.verifrax.net",
+  "contract_version": "2.2.0",
+  "class": "execution_api",
+  "capabilities": [
+    "health",
+    "readiness",
+    "version",
+    "openapi",
+    "capabilities",
+    "law_projection",
+    "state_projection",
+    "receipt_projection",
+    "verdict_projection",
+    "upload",
+    "verify"
+  ],
+  "mode": "public_projection",
+  "governed_direction": "law -> state -> execution -> proof -> verdict"
+}

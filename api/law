@@ -1,0 +1,8 @@
+{
+  "surface": "api.verifrax.net",
+  "kind": "law_projection",
+  "source_repo": "SYNTAGMARIUM",
+  "law_ref": "SYNTAGMARIUM@main",
+  "status": "projected_reference",
+  "note": "Canonical law remains in SYNTAGMARIUM."
+}

@@ -2,11 +2,13 @@
   "openapi": "3.1.0",
   "info": {
     "title": "VERIFRAX API",
-    "version": "0.0.0",
+    "version": "2.2.0",
     "description": "Canonical execution API surface for api.verifrax.net"
   },
   "servers": [
-    { "url": "https://api.verifrax.net" }
+    {
+      "url": "https://api.verifrax.net"
+    }
   ],
   "paths": {
     "/healthz": {
@@ -20,12 +22,25 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "status": { "type": "string" },
-                    "surface": { "type": "string" },
-                    "role": { "type": "string" },
-                    "live": { "type": "boolean" }
+                    "status": {
+                      "type": "string"
+                    },
+                    "surface": {
+                      "type": "string"
+                    },
+                    "role": {
+                      "type": "string"
+                    },
+                    "live": {
+                      "type": "boolean"
+                    }
                   },
-                  "required": ["status","surface","role","live"]
+                  "required": [
+                    "status",
+                    "surface",
+                    "role",
+                    "live"
+                  ]
                 }
               }
             }
@@ -44,12 +59,25 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "status": { "type": "string" },
-                    "surface": { "type": "string" },
-                    "role": { "type": "string" },
-                    "live": { "type": "boolean" }
+                    "status": {
+                      "type": "string"
+                    },
+                    "surface": {
+                      "type": "string"
+                    },
+                    "role": {
+                      "type": "string"
+                    },
+                    "live": {
+                      "type": "boolean"
+                    }
                   },
-                  "required": ["status","surface","role","live"]
+                  "required": [
+                    "status",
+                    "surface",
+                    "role",
+                    "live"
+                  ]
                 }
               }
             }
@@ -65,7 +93,9 @@
             "description": "version",
             "content": {
               "text/plain": {
-                "schema": { "type": "string" }
+                "schema": {
+                  "type": "string"
+                }
               }
             }
           }
@@ -80,8 +110,100 @@
             "description": "OpenAPI document",
             "content": {
               "application/json": {
-                "schema": { "type": "object" }
+                "schema": {
+                  "type": "object"
+                }
               }
+            }
+          }
+        }
+      }
+    },
+    "/api/capabilities": {
+      "get": {
+        "operationId": "capabilities",
+        "summary": "Get public API capability projection",
+        "responses": {
+          "200": {
+            "description": "Capabilities projection",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/law": {
+      "get": {
+        "operationId": "lawProjection",
+        "summary": "Get projected law reference",
+        "responses": {
+          "200": {
+            "description": "Law projection",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/state": {
+      "get": {
+        "operationId": "stateProjection",
+        "summary": "Get projected accepted-state reference",
+        "responses": {
+          "200": {
+            "description": "State projection",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/receipt/{id}": {
+      "get": {
+        "operationId": "receiptProjection",
+        "summary": "Get projected execution receipt by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Receipt projection",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/verdict/{id}": {
+      "get": {
+        "operationId": "verdictProjection",
+        "summary": "Get projected verdict by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Verdict projection",
+            "content": {
+              "application/json": {}
             }
           }
         }

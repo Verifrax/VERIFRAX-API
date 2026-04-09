@@ -1,0 +1,16 @@
+{
+  "verdict_id": "example-0001",
+  "surface": "api.verifrax.net",
+  "kind": "verdict_projection",
+  "status": "example",
+  "law_ref": "SYNTAGMARIUM@main",
+  "state_ref": "ORBISTIUM@current",
+  "execution_ref": "receipt:example-0001",
+  "proof_ref": "proof:example-0001",
+  "verifier_version": "2.2.0",
+  "verdict": "INDETERMINATE",
+  "reason_codes": [
+    "EXAMPLE_ONLY"
+  ],
+  "contradictions": []
+}

@@ -1,0 +1,8 @@
+{
+  "surface": "api.verifrax.net",
+  "kind": "state_projection",
+  "source_repo": "ORBISTIUM",
+  "state_ref": "ORBISTIUM@current",
+  "status": "projected_reference",
+  "note": "Accepted state remains in ORBISTIUM."
+}

@@ -24,6 +24,13 @@ Public contract endpoints:
 - `https://api.verifrax.net/version`
 - `https://api.verifrax.net/openapi.json`
 
+Governed projection endpoints:
+- `https://api.verifrax.net/api/capabilities`
+- `https://api.verifrax.net/api/law`
+- `https://api.verifrax.net/api/state`
+- `https://api.verifrax.net/api/receipt/example-0001`
+- `https://api.verifrax.net/api/verdict/example-0001`
+
 ## Boundary
 
 VERIFRAX-SURFACE controls form.
