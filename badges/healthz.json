@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 1,
+  "label": "/healthz",
+  "message": "ok",
+  "color": "brightgreen"
+}
