@@ -2,13 +2,15 @@ name: Contract Status
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "*/30 * * * *"
   pull_request:
     branches: [main]
   push:
     branches: [main]
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   contract-status:
@@ -16,8 +18,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -43,16 +43,3 @@ jobs:
           path: |
             evidence/current/contract-status.json
             badges/*.json
-
-      - name: Commit probe-generated evidence to main
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: |
-          if git diff --quiet -- evidence/current/contract-status.json badges/*.json; then
-            echo "No contract evidence changes"
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add evidence/current/contract-status.json badges/*.json
-          git commit -m "Publish live API contract status"
-          git push
