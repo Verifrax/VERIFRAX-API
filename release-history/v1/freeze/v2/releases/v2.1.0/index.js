@@ -412,7 +412,6 @@ export default {
 
     // API boundary
     if (path.startsWith("/api/")) {
-      return new Response(
 if (path === "/api/capabilities" && method === "GET") {
     return new Response(
       JSON.stringify({
@@ -435,11 +434,14 @@ if (path === "/api/capabilities" && method === "GET") {
         mode: "public_projection",
         governed_direction: "law -> state -> execution -> proof -> verdict"
       }, null, 2),
-      { status: 200, headers: { "content-type": "application/json; charset=UTF-8" } }
+      withExecutionHeaders({
+          status: 200,
+          headers: { "Content-Type": "application/json; charset=UTF-8" }
+        })
     );
-  }
+    }
 
-  if (path === "/api/law" && method === "GET") {
+    if (path === "/api/law" && method === "GET") {
     return new Response(
       JSON.stringify({
         surface: "api.verifrax.net",
@@ -449,11 +451,14 @@ if (path === "/api/capabilities" && method === "GET") {
         status: "projected_reference",
         note: "Canonical law remains in SYNTAGMARIUM."
       }, null, 2),
-      { status: 200, headers: { "content-type": "application/json; charset=UTF-8" } }
+      withExecutionHeaders({
+          status: 200,
+          headers: { "Content-Type": "application/json; charset=UTF-8" }
+        })
     );
-  }
+    }
 
-  if (path === "/api/state" && method === "GET") {
+    if (path === "/api/state" && method === "GET") {
     return new Response(
       JSON.stringify({
         surface: "api.verifrax.net",
@@ -463,11 +468,14 @@ if (path === "/api/capabilities" && method === "GET") {
         status: "projected_reference",
         note: "Accepted state remains in ORBISTIUM."
       }, null, 2),
-      { status: 200, headers: { "content-type": "application/json; charset=UTF-8" } }
+      withExecutionHeaders({
+          status: 200,
+          headers: { "Content-Type": "application/json; charset=UTF-8" }
+        })
     );
-  }
+    }
 
-  if (path === "/api/receipt/example-0001" && method === "GET") {
+    if (path === "/api/receipt/example-0001" && method === "GET") {
     return new Response(
       JSON.stringify({
         receipt_id: "example-0001",
@@ -479,11 +487,14 @@ if (path === "/api/capabilities" && method === "GET") {
         law_ref: "SYNTAGMARIUM@main",
         state_ref: "ORBISTIUM@current"
       }, null, 2),
-      { status: 200, headers: { "content-type": "application/json; charset=UTF-8" } }
+      withExecutionHeaders({
+          status: 200,
+          headers: { "Content-Type": "application/json; charset=UTF-8" }
+        })
     );
-  }
+    }
 
-  if (path === "/api/verdict/example-0001" && method === "GET") {
+    if (path === "/api/verdict/example-0001" && method === "GET") {
     return new Response(
       JSON.stringify({
         verdict_id: "example-0001",
@@ -499,10 +510,14 @@ if (path === "/api/capabilities" && method === "GET") {
         reason_codes: ["EXAMPLE_ONLY"],
         contradictions: []
       }, null, 2),
-      { status: 200, headers: { "content-type": "application/json; charset=UTF-8" } }
+      withExecutionHeaders({
+          status: 200,
+          headers: { "Content-Type": "application/json; charset=UTF-8" }
+        })
     );
-  }
+    }
 
+      return new Response(
         "VERIFRAX API: not implemented",
         withExecutionHeaders({ status: 501 })
       );
