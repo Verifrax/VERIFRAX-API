@@ -1,0 +1,10 @@
+{
+  "receipt_id": "example-0001",
+  "surface": "api.verifrax.net",
+  "kind": "execution_receipt_projection",
+  "status": "example",
+  "execution_ref": "receipt:example-0001",
+  "proof_ref": "proof:example-0001",
+  "law_ref": "SYNTAGMARIUM@main",
+  "state_ref": "ORBISTIUM@current"
+}
