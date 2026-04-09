@@ -45,106 +45,59 @@ export default {
     }
 
     if (path === "/openapi.json" && method === "GET") {
-      const openapi = {
-        openapi: "3.1.0",
-        info: {
-          title: "VERIFRAX API",
-          version: "0.0.0",
-          description: "Canonical execution API surface for api.verifrax.net"
+    const openapi = {
+      openapi: "3.1.0",
+      info: {
+        title: "VERIFRAX API",
+        version: "0.0.0",
+        description: "Canonical execution API surface for api.verifrax.net"
+      },
+      servers: [
+        { url: "https://api.verifrax.net" }
+      ],
+      paths: {
+        "/healthz": {
+          get: { operationId: "healthz", responses: { "200": { description: "health" } } }
         },
-        servers: [
-          { url: "https://api.verifrax.net" }
-        ],
-        paths: {
-          "/healthz": {
-            get: {
-              operationId: "healthz",
-              responses: {
-                "200": {
-                  description: "health",
-                  content: {
-                    "application/json": {
-                      schema: {
-                        type: "object",
-                        properties: {
-                          status: { type: "string" },
-                          surface: { type: "string" },
-                          role: { type: "string" },
-                          live: { type: "boolean" }
-                        },
-                        required: ["status", "surface", "role", "live"]
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "/readyz": {
-            get: {
-              operationId: "readyz",
-              responses: {
-                "200": {
-                  description: "readiness",
-                  content: {
-                    "application/json": {
-                      schema: {
-                        type: "object",
-                        properties: {
-                          status: { type: "string" },
-                          surface: { type: "string" },
-                          role: { type: "string" },
-                          live: { type: "boolean" }
-                        },
-                        required: ["status", "surface", "role", "live"]
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "/version": {
-            get: {
-              operationId: "version",
-              responses: {
-                "200": {
-                  description: "version",
-                  content: {
-                    "text/plain": {
-                      schema: { type: "string" }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "/openapi.json": {
-            get: {
-              operationId: "openapi",
-              responses: {
-                "200": {
-                  description: "OpenAPI document",
-                  content: {
-                    "application/json": {
-                      schema: { type: "object" }
-                    }
-                  }
-                }
-              }
-            }
-          }
+        "/readyz": {
+          get: { operationId: "readyz", responses: { "200": { description: "readiness" } } }
+        },
+        "/version": {
+          get: { operationId: "version", responses: { "200": { description: "version" } } }
+        },
+        "/api/upload": {
+          post: { operationId: "upload", responses: { "200": { description: "upload" } } }
+        },
+        "/api/verify": {
+          post: { operationId: "verify", responses: { "200": { description: "verify" } } }
+        },
+        "/api/capabilities": {
+          get: { operationId: "capabilities", responses: { "200": { description: "capabilities" } } }
+        },
+        "/api/law": {
+          get: { operationId: "lawProjection", responses: { "200": { description: "law projection" } } }
+        },
+        "/api/state": {
+          get: { operationId: "stateProjection", responses: { "200": { description: "state projection" } } }
+        },
+        "/api/receipt/example-0001": {
+          get: { operationId: "receiptProjection", responses: { "200": { description: "receipt projection" } } }
+        },
+        "/api/verdict/example-0001": {
+          get: { operationId: "verdictProjection", responses: { "200": { description: "verdict projection" } } }
+        },
+        "/openapi.json": {
+          get: { operationId: "openapi", responses: { "200": { description: "OpenAPI document" } } }
         }
-      };
+      }
+    };
+    return new Response(
+      JSON.stringify(openapi, null, 2),
+      { status: 200, headers: { "content-type": "application/json; charset=UTF-8" } }
+    );
+  }
 
-      return new Response(
-        JSON.stringify(openapi, null, 2),
-        withExecutionHeaders({
-          status: 200,
-          headers: { "Content-Type": "application/json; charset=UTF-8" }
-        })
-      );
-    }
+
 
     // Create payment intent endpoint
     if (path === "/api/create-payment-intent" && method === "POST") {
@@ -460,6 +413,96 @@ export default {
     // API boundary
     if (path.startsWith("/api/")) {
       return new Response(
+if (path === "/api/capabilities" && method === "GET") {
+    return new Response(
+      JSON.stringify({
+        surface: "api.verifrax.net",
+        contract_version: "0.0.0",
+        class: "execution_api",
+        capabilities: [
+          "health",
+          "readiness",
+          "version",
+          "openapi",
+          "capabilities",
+          "law_projection",
+          "state_projection",
+          "receipt_projection",
+          "verdict_projection",
+          "upload",
+          "verify"
+        ],
+        mode: "public_projection",
+        governed_direction: "law -> state -> execution -> proof -> verdict"
+      }, null, 2),
+      { status: 200, headers: { "content-type": "application/json; charset=UTF-8" } }
+    );
+  }
+
+  if (path === "/api/law" && method === "GET") {
+    return new Response(
+      JSON.stringify({
+        surface: "api.verifrax.net",
+        kind: "law_projection",
+        source_repo: "SYNTAGMARIUM",
+        law_ref: "SYNTAGMARIUM@main",
+        status: "projected_reference",
+        note: "Canonical law remains in SYNTAGMARIUM."
+      }, null, 2),
+      { status: 200, headers: { "content-type": "application/json; charset=UTF-8" } }
+    );
+  }
+
+  if (path === "/api/state" && method === "GET") {
+    return new Response(
+      JSON.stringify({
+        surface: "api.verifrax.net",
+        kind: "state_projection",
+        source_repo: "ORBISTIUM",
+        state_ref: "ORBISTIUM@current",
+        status: "projected_reference",
+        note: "Accepted state remains in ORBISTIUM."
+      }, null, 2),
+      { status: 200, headers: { "content-type": "application/json; charset=UTF-8" } }
+    );
+  }
+
+  if (path === "/api/receipt/example-0001" && method === "GET") {
+    return new Response(
+      JSON.stringify({
+        receipt_id: "example-0001",
+        surface: "api.verifrax.net",
+        kind: "execution_receipt_projection",
+        status: "example",
+        execution_ref: "receipt:example-0001",
+        proof_ref: "proof:example-0001",
+        law_ref: "SYNTAGMARIUM@main",
+        state_ref: "ORBISTIUM@current"
+      }, null, 2),
+      { status: 200, headers: { "content-type": "application/json; charset=UTF-8" } }
+    );
+  }
+
+  if (path === "/api/verdict/example-0001" && method === "GET") {
+    return new Response(
+      JSON.stringify({
+        verdict_id: "example-0001",
+        surface: "api.verifrax.net",
+        kind: "verdict_projection",
+        status: "example",
+        law_ref: "SYNTAGMARIUM@main",
+        state_ref: "ORBISTIUM@current",
+        execution_ref: "receipt:example-0001",
+        proof_ref: "proof:example-0001",
+        verifier_version: "0.0.0",
+        verdict: "INDETERMINATE",
+        reason_codes: ["EXAMPLE_ONLY"],
+        contradictions: []
+      }, null, 2),
+      { status: 200, headers: { "content-type": "application/json; charset=UTF-8" } }
+    );
+  }
+
         "VERIFRAX API: not implemented",
         withExecutionHeaders({ status: 501 })
       );

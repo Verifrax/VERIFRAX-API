@@ -122,13 +122,9 @@
     "/api/capabilities": {
       "get": {
         "operationId": "capabilities",
-        "summary": "Get public API capability projection",
         "responses": {
           "200": {
-            "description": "Capabilities projection",
-            "content": {
-              "application/json": {}
-            }
+            "description": "capabilities"
           }
         }
       }
@@ -136,13 +132,9 @@
     "/api/law": {
       "get": {
         "operationId": "lawProjection",
-        "summary": "Get projected law reference",
         "responses": {
           "200": {
-            "description": "Law projection",
-            "content": {
-              "application/json": {}
-            }
+            "description": "law projection"
           }
         }
       }
@@ -150,13 +142,9 @@
     "/api/state": {
       "get": {
         "operationId": "stateProjection",
-        "summary": "Get projected accepted-state reference",
         "responses": {
           "200": {
-            "description": "State projection",
-            "content": {
-              "application/json": {}
-            }
+            "description": "state projection"
           }
         }
       }
@@ -205,6 +193,26 @@
             "content": {
               "application/json": {}
             }
+          }
+        }
+      }
+    },
+    "/api/receipt/example-0001": {
+      "get": {
+        "operationId": "receiptProjection",
+        "responses": {
+          "200": {
+            "description": "receipt projection"
+          }
+        }
+      }
+    },
+    "/api/verdict/example-0001": {
+      "get": {
+        "operationId": "verdictProjection",
+        "responses": {
+          "200": {
+            "description": "verdict projection"
           }
         }
       }
