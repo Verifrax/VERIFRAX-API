@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 1,
+  "label": "/readyz",
+  "message": "ready",
+  "color": "brightgreen"
+}

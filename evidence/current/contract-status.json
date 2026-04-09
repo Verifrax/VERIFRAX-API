@@ -1,0 +1,48 @@
+{
+  "host": "api.verifrax.net",
+  "surface_class": "execution_api",
+  "checked_at": "2026-04-09T07:42:55Z",
+  "binding_status": "live",
+  "checked_endpoints": {
+    "/healthz": {
+      "status": "pass",
+      "content_type": "application/json; charset=UTF-8",
+      "body": {
+        "status": "ok",
+        "surface": "api.verifrax.net",
+        "role": "execution",
+        "live": true
+      }
+    },
+    "/readyz": {
+      "status": "pass",
+      "content_type": "application/json; charset=UTF-8",
+      "body": {
+        "status": "ready",
+        "surface": "api.verifrax.net",
+        "role": "execution",
+        "live": true
+      }
+    },
+    "/version": {
+      "status": "pass",
+      "content_type": "text/plain; charset=UTF-8",
+      "body": "0.0.0\\n"
+    },
+    "/openapi.json": {
+      "status": "pass",
+      "content_type": "application/json; charset=UTF-8",
+      "openapi": "3.1.0",
+      "title": "VERIFRAX API",
+      "server_url": "https://api.verifrax.net",
+      "required_public_paths_present": [
+        "/healthz",
+        "/openapi.json",
+        "/readyz",
+        "/version"
+      ]
+    }
+  },
+  "overall_status": "pass",
+  "evidence_sha256": "d1292666f725fc5128bf33eb5cf45599e54c6cb6af4bdde17957ed57d072ee7b"
+}

@@ -1,110 +1,73 @@
 # VERIFRAX-API
 
-Canonical repository for `api.verifrax.net`.
+Canonical API source for `api.verifrax.net`.
 
-## Status
+Execution surface only.
 
-- Repository role: API host implementation surface
-- Public host ownership: `https://api.verifrax.net/`
-- Current live host binding: static GitHub Pages-backed boundary page plus live machine contract files on the custom domain
-- Current contract status: `/healthz`, `/readyz`, `/version`, and `/openapi.json` are live on the current host binding
-- Implementation status: `wrangler.toml` and Worker-oriented runtime material exist in the repository, but they are not the current live host truth
-- Package status: repository-private root workspace
-- License: Apache License Version 2.0
+[![Contract Status](https://github.com/Verifrax/VERIFRAX-API/actions/workflows/contract-status.yml/badge.svg?branch=main)](https://github.com/Verifrax/VERIFRAX-API/actions/workflows/contract-status.yml)
+[![contract](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Verifrax/VERIFRAX-API/main/badges/contract.json)](https://github.com/Verifrax/VERIFRAX-API/blob/main/evidence/current/contract-status.json)
+[![healthz](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Verifrax/VERIFRAX-API/main/badges/healthz.json)](https://api.verifrax.net/healthz)
+[![readyz](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Verifrax/VERIFRAX-API/main/badges/readyz.json)](https://api.verifrax.net/readyz)
+[![version](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Verifrax/VERIFRAX-API/main/badges/version.json)](https://api.verifrax.net/version)
+[![openapi](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Verifrax/VERIFRAX-API/main/badges/openapi.json)](https://api.verifrax.net/openapi.json)
 
-## One-sentence role
+## Current contract status
 
-`VERIFRAX-API` is the host-owning implementation repository for `api.verifrax.net`, and it must describe the live API host truth exactly without overstating contract availability or runtime deployment state.
+Current contract status: `/healthz`, `/readyz`, `/version`, and `/openapi.json` are live on the current host binding.
 
-## What this repository is
+Evidence source:
+- `evidence/current/contract-status.json`
 
-This repository exists to hold:
+Public contract endpoints:
+- `https://api.verifrax.net/healthz`
+- `https://api.verifrax.net/readyz`
+- `https://api.verifrax.net/version`
+- `https://api.verifrax.net/openapi.json`
 
-- API-host implementation material
-- host boundary metadata
-- contract-facing implementation files when they are truly live
-- deployment-facing runtime configuration
-- API-surface validation and projection rules
+## Boundary
 
-## What this repository is not
+VERIFRAX-SURFACE controls form.
+Host-owning repositories control function and content.
 
-This repository is not:
 
-- the proof publication surface
-- the public verifier surface
-- the authority issuance surface
-- the runtime reference surface
-- the intake surface
-- the docs surface
-- the status surface
-- the commercial root surface
 
-It is also not allowed to claim:
+- source-of-truth repo for the execution host
+- deployment target is Cloudflare Worker / edge runtime
+- `api.verifrax.net` must remain bound to execution infrastructure
+- root HTML is informational only and does not outrank the live contract endpoints
+- README badges are projections of probe-generated evidence, not assertions by prose
 
-- a live Worker deployment when the host is serving from GitHub Pages
-- live contract endpoints when those endpoints return `404`
-- proof, verification, intake, docs, or status ownership
+## Truth rule
 
-## Current live boundary
+No surface in this repository may claim liveness or readiness unless that claim is derived from a reproducible live probe.
 
-The current live root at `https://api.verifrax.net/` serves a static boundary page and live machine contract files.
+`README.md` is projection.  
+`index.html` is projection.  
+`badges/*.json` are projection.  
+`evidence/current/contract-status.json` is the machine-readable contract evidence.
 
-That current live host truth means:
+## Governed verification direction
 
-- the root host is reachable
-- the custom domain is live
-- the current host is serving the declared machine contract paths
-- repository truth must follow that current host state until deployment truth changes
+This repository is the execution-surface anchor for a future end-to-end governed verification system:
 
-## Contract boundary
-
-The intended API contract includes these paths:
-
-- `/healthz`
-- `/readyz`
-- `/version`
-- `/openapi.json`
-
-Those paths are live contract surfaces and must remain served successfully by the live host.
-
-## Implementation boundary
-
-This repository contains Worker-oriented implementation material, including `wrangler.toml`.
-
-That implementation material is retained as repository implementation surface.
-
-It must not be confused with current live deployment truth unless the live host binding and contract responses actually match it.
-
-## Adjacent surfaces
-
-- `https://proof.verifrax.net/` — proof publication
-- `https://verify.verifrax.net/` — public verification
-- `https://auctoriseal.verifrax.net/` — authority issuance/reference
-- `https://corpiform.verifrax.net/` — runtime reference
-- `https://apply.verifrax.net/` — intake
-- `https://docs.verifrax.net/` — documentation
-- `https://status.verifrax.net/` — operational status
-- `https://www.verifrax.net/` — commercial root
-
-## Reading rule
-
-Read this repository as the API host implementation boundary only.
-
-Do not read it as proof, verifier, authority, intake, docs, status, or commercial truth.
-
-Do not read runtime implementation intent as equivalent to current live host state.
+- SYNTAGMARIUM defines law
+- ORBISTIUM holds accepted state
+- CONSONORIUM reconciles runtime/state
+- VERIFRAX-API exposes execution-surface contract truth for `api.verifrax.net`
 
 ## License
 
-Apache License Version 2.0\n\n
-## Live contract
+Apache License Version 2.0
 
-Canonical live endpoints:
+## Validation
 
-- `GET https://api.verifrax.net/healthz`
-- `GET https://api.verifrax.net/readyz`
-- `GET https://api.verifrax.net/version`
-- `GET https://api.verifrax.net/openapi.json`
+```bash
+python3 scripts/contract_probe.py
+python3 -m json.tool evidence/current/contract-status.json >/dev/null
+python3 -m json.tool badges/healthz.json >/dev/null
+python3 -m json.tool badges/readyz.json >/dev/null
+python3 -m json.tool badges/version.json >/dev/null
+python3 -m json.tool badges/openapi.json >/dev/null
+python3 -m json.tool badges/contract.json >/dev/null
+````
 
-These endpoints are live on the current host binding.
-\n
