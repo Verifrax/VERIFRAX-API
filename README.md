@@ -26,6 +26,11 @@ Public contract endpoints:
 
 ## Boundary
 
+VERIFRAX-SURFACE controls form.
+Host-owning repositories control function and content.
+
+
+
 - source-of-truth repo for the execution host
 - deployment target is Cloudflare Worker / edge runtime
 - `api.verifrax.net` must remain bound to execution infrastructure
@@ -49,6 +54,10 @@ This repository is the execution-surface anchor for a future end-to-end governed
 - ORBISTIUM holds accepted state
 - CONSONORIUM reconciles runtime/state
 - VERIFRAX-API exposes execution-surface contract truth for `api.verifrax.net`
+
+## License
+
+Apache License Version 2.0
 
 ## Validation
 
