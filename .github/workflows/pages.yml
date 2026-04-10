@@ -1,0 +1,70 @@
+name: pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+
+      - name: Build Pages artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf dist
+          mkdir -p dist
+
+          cp index.html dist/index.html
+          cp 404.html dist/404.html
+          cp CNAME dist/CNAME
+          cp -R assets dist/assets
+
+          cp healthz dist/healthz
+          cp readyz dist/readyz
+          cp version dist/version
+          cp openapi.json dist/openapi.json
+
+          if [ -d surface-preview ]; then
+            cp -R surface-preview dist/surface-preview
+          fi
+
+          test -f dist/index.html
+          test -f dist/404.html
+          test -f dist/CNAME
+          test -f dist/assets/surface.css
+          test -f dist/healthz
+          test -f dist/readyz
+          test -f dist/version
+          test -f dist/openapi.json
+          grep -Fx "api.verifrax.net" dist/CNAME
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
