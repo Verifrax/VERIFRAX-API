@@ -11,6 +11,11 @@ Execution surface only.
 [![version](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Verifrax/VERIFRAX-API/main/badges/version.json)](https://api.verifrax.net/version)
 [![openapi](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Verifrax/VERIFRAX-API/main/badges/openapi.json)](https://api.verifrax.net/openapi.json)
 
+## Terminal planes
+
+- **[ANAGNORIUM](https://github.com/Verifrax/ANAGNORIUM)** — terminal recognition
+- **[REGRESSORIUM](https://github.com/Verifrax/REGRESSORIUM)** — terminal recourse
+
 ## Current contract status
 
 Current contract status: `/healthz`, `/readyz`, `/version`, and `/openapi.json` are live on the current host binding.
@@ -77,4 +82,11 @@ python3 -m json.tool badges/version.json >/dev/null
 python3 -m json.tool badges/openapi.json >/dev/null
 python3 -m json.tool badges/contract.json >/dev/null
 ````
+
+## Adjacent sovereign surfaces
+
+This repository is part of the Verifrax sovereign stack and remains bounded relative to:
+
+- **[ANAGNORIUM](https://github.com/Verifrax/ANAGNORIUM)** for terminal recognition
+- **[REGRESSORIUM](https://github.com/Verifrax/REGRESSORIUM)** for terminal recourse
 
