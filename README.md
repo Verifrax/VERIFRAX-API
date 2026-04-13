@@ -1,15 +1,6 @@
 # VERIFRAX-API
 
-Canonical API source for `api.verifrax.net`.
-
-Execution surface only.
-
-[![Contract Status](https://github.com/Verifrax/VERIFRAX-API/actions/workflows/contract-status.yml/badge.svg?branch=main)](https://github.com/Verifrax/VERIFRAX-API/actions/workflows/contract-status.yml)
-[![contract](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Verifrax/VERIFRAX-API/main/badges/contract.json)](https://github.com/Verifrax/VERIFRAX-API/blob/main/evidence/current/contract-status.json)
-[![healthz](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Verifrax/VERIFRAX-API/main/badges/healthz.json)](https://api.verifrax.net/healthz)
-[![readyz](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Verifrax/VERIFRAX-API/main/badges/readyz.json)](https://api.verifrax.net/readyz)
-[![version](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Verifrax/VERIFRAX-API/main/badges/version.json)](https://api.verifrax.net/version)
-[![openapi](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Verifrax/VERIFRAX-API/main/badges/openapi.json)](https://api.verifrax.net/openapi.json)
+VERIFRAX-API is the Verifrax API host boundary: the public host surface for `https://api.verifrax.net` that exposes API-host identity and deployment truth without becoming authored protocol source, authority issuance, governed execution, public verification, proof publication, archive/reference, or intake.
 
 ## Proof artifacts
 
@@ -31,76 +22,112 @@ This repository is part of the VERIFRAX proof perimeter.
 - **[ANAGNORIUM](https://github.com/Verifrax/ANAGNORIUM)** — terminal recognition
 - **[REGRESSORIUM](https://github.com/Verifrax/REGRESSORIUM)** — terminal recourse
 
-## Current contract status
+## Status
 
-Current contract status: `/healthz`, `/readyz`, `/version`, and `/openapi.json` are live on the current host binding.
-
-Evidence source:
-- `evidence/current/contract-status.json`
-
-Public contract endpoints:
-- `https://api.verifrax.net/healthz`
-- `https://api.verifrax.net/readyz`
-- `https://api.verifrax.net/version`
-- `https://api.verifrax.net/openapi.json`
-
-Governed projection endpoints:
-- `https://api.verifrax.net/api/capabilities`
-- `https://api.verifrax.net/api/law`
-- `https://api.verifrax.net/api/state`
-- `https://api.verifrax.net/api/receipt/example-0001`
-- `https://api.verifrax.net/api/verdict/example-0001`
+* Surface class: API host boundary
+* Public host: `https://api.verifrax.net`
+* Host class: tool
+* Role: api
+* Deploy mode: static-root
+* Repository posture: public host implementation surface
+* License: Apache License Version 2.0
 
 ## Boundary
 
-VERIFRAX-SURFACE controls form.
-Host-owning repositories control function and content.
+This repository owns API-host identity and deployment boundary only.
 
+It defines the bounded host surface for `https://api.verifrax.net`.
+It does not define authored protocol source.
+It does not issue authority.
+It does not execute governed actions as CORPIFORM.
+It does not act as the public verifier surface.
+It does not publish proof.
+It does not serve as archive/reference.
+It does not operate intake.
+It does not replace adjacent sovereign boundaries.
 
+## What it does
 
-- source-of-truth repo for the execution host
-- deployment target is Cloudflare Worker / edge runtime
-- `api.verifrax.net` must remain bound to execution infrastructure
-- root HTML is informational only and does not outrank the live contract endpoints
-- README badges are projections of probe-generated evidence, not assertions by prose
+- defines the repository boundary for `https://api.verifrax.net`
+- preserves host identity and deployment truth for the API surface
+- keeps host-surface language bounded and non-overlapping
+- exposes adjacent-host relationships without collapsing role boundaries
+- anchors API-host truth as a surface, not as constitutional or verification authority
+
+## What it does not do
+
+- not authored protocol source; that belongs to VERIFRAX
+- not authority issuance; that belongs to AUCTORISEAL
+- not governed execution; that belongs to CORPIFORM
+- not public verification; that belongs to VERIFRAX-verify
+- not proof publication; that belongs to proof
+- not archive/reference; that belongs to SIGILLARIUM
+- not intake; that belongs to apply
+- not constitutional doctrine; that belongs to SYNTAGMARIUM
+- not canonical world-state; that belongs to ORBISTIUM
+- not reconciliation or repair; that belongs to CONSONORIUM
+- not sovereign cognition; that belongs to TACHYRIUM
+
+## Public surface
+
+The public surface of this repository is the host boundary for `https://api.verifrax.net`, the repository identity, and the deployment metadata that binds that host to this repository.
+
+Host presentation here is not protocol source.
+Host presentation here is not authority.
+Host presentation here is not execution.
+Host presentation here is not verification.
+Host presentation here is not proof publication.
+
+## Package / host / repo truth
+
+Repository truth for VERIFRAX-API lives in this repository.
+
+Host truth for this surface is `https://api.verifrax.net`.
+Host presentation and repository truth are related but not interchangeable.
+Repository boundary still controls API-host role truth here.
 
 ## Truth rule
 
-No surface in this repository may claim liveness or readiness unless that claim is derived from a reproducible live probe.
+Read this repository as host-boundary truth only.
 
-`README.md` is projection.  
-`index.html` is projection.  
-`badges/*.json` are projection.  
-`evidence/current/contract-status.json` is the machine-readable contract evidence.
+If this repository starts sounding like protocol source, authority, execution, verification, proof publication, archive, or intake at the same time, the boundary is already broken.
 
 ## Governed verification direction
 
-This repository is the execution-surface anchor for a future end-to-end governed verification system:
+* `VERIFRAX` authors normative source material.
+* `VERIFRAX-SPEC` publishes derived specification artifacts from `VERIFRAX`.
+* Derived artifacts are not upstream authority.
+* Governance authority is external and binds through `AUCTORISEAL` plus the governed repository set declared in `.github`.
 
-- SYNTAGMARIUM defines law
-- ORBISTIUM holds accepted state
-- CONSONORIUM reconciles runtime/state
-- VERIFRAX-API exposes execution-surface contract truth for `api.verifrax.net`
+## Not this
+
+VERIFRAX-API is not authored protocol source.
+VERIFRAX-API is not authority issuance.
+VERIFRAX-API is not governed execution.
+VERIFRAX-API is not public verification.
+VERIFRAX-API is not proof publication.
+VERIFRAX-API is not archive/reference.
+VERIFRAX-API is not intake.
+
+## Validation
+
+- `surface.host.json` must continue to declare:
+  - repo = `VERIFRAX-API`
+  - host = `https://api.verifrax.net`
+  - hostClass = `tool`
+  - role = `api`
+  - deployMode = `static-root`
 
 ## License
 
 Apache License Version 2.0
 
-## Validation
-
-```bash
-python3 scripts/contract_probe.py
-python3 -m json.tool evidence/current/contract-status.json >/dev/null
-python3 -m json.tool badges/healthz.json >/dev/null
-python3 -m json.tool badges/readyz.json >/dev/null
-python3 -m json.tool badges/version.json >/dev/null
-python3 -m json.tool badges/openapi.json >/dev/null
-python3 -m json.tool badges/contract.json >/dev/null
-````
-
 ## Adjacent sovereign surfaces
 
-This repository is part of the Verifrax sovereign stack and remains bounded relative to:
-
-- **[ANAGNORIUM](https://github.com/Verifrax/ANAGNORIUM)** for terminal recognition
-- **[REGRESSORIUM](https://github.com/Verifrax/REGRESSORIUM)** for terminal recourse
+- `VERIFRAX` — authored protocol and evidence-root boundary
+- `AUCTORISEAL` — authority issuance
+- `CORPIFORM` — governed execution
+- `VERIFRAX-verify` — public verification
+- `proof` — proof publication
+- `SIGILLARIUM` — archive/reference
+- `apply` — intake
