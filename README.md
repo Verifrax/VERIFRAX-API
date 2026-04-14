@@ -1,5 +1,9 @@
 # VERIFRAX-API
 
+Package: @verifrax/verifrax-api
+Binary: verifrax-seal
+Repository: Verifrax/VERIFRAX-API
+
 VERIFRAX-API is the Verifrax API host boundary: the public host surface for `https://api.verifrax.net` that exposes API-host identity and deployment truth without becoming authored protocol source, authority issuance, governed execution, public verification, proof publication, archive/reference, or intake.
 
 ## Proof artifacts
