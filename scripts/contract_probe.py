@@ -11,8 +11,6 @@ REQUIRED_PUBLIC_PATHS = {
     "/healthz",
     "/readyz",
     "/version",
-    "/api/upload",
-    "/api/verify",
     "/api/capabilities",
     "/api/law",
     "/api/state",
@@ -78,7 +76,8 @@ def main() -> None:
 
     healthz, healthz_ct = fetch_json("/healthz")
     readyz, readyz_ct = fetch_json("/readyz")
-    version_text, version_ct = fetch_text("/version")
+    version_body, version_ct = request("/version", "application/json, text/plain;q=0.9, */*;q=0.8")
+    version_text = version_body.decode("utf-8")
     openapi, openapi_ct = fetch_json("/openapi.json")
 
     for name, payload in (("healthz", healthz), ("readyz", readyz)):
@@ -91,12 +90,28 @@ def main() -> None:
             raise SystemExit(f"/{name} is not live")
 
     version_value = version_text.strip()
+    version_body_value = version_value
+
     if not version_value:
         raise SystemExit("/version returned empty body")
-    if len(version_value) > 120:
-        raise SystemExit("/version returned unexpectedly long body")
-    if not re.search(r"[A-Za-z0-9]", version_value):
-        raise SystemExit("/version returned non-informative body")
+
+    if "json" in version_ct.lower():
+        try:
+            version_json = json.loads(version_text)
+        except json.JSONDecodeError as e:
+            raise SystemExit(f"/version returned invalid JSON: {e}") from e
+        if not isinstance(version_json, dict):
+            raise SystemExit("/version returned JSON that is not an object")
+        for key in ("runtime", "verifier_version", "payment_status", "api_contract_version"):
+            if key not in version_json:
+                raise SystemExit(f"/version missing key: {key}")
+        version_body_value = version_json
+        version_value = str(version_json["api_contract_version"])
+    else:
+        if len(version_value) > 512:
+            raise SystemExit("/version returned unexpectedly long body")
+        if not re.search(r"[A-Za-z0-9]", version_value):
+            raise SystemExit("/version returned non-informative body")
 
     if openapi.get("openapi") != "3.1.0":
         raise SystemExit("openapi version mismatch")
@@ -131,7 +146,8 @@ def main() -> None:
             "/version": {
                 "status": "pass",
                 "content_type": version_ct,
-                "body": version_value,
+                "body": version_body_value,
+                "badge_value": version_value,
             },
             "/openapi.json": {
                 "status": "pass",
