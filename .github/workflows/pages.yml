@@ -40,6 +40,10 @@ jobs:
           cp version dist/version
           cp openapi.json dist/openapi.json
 
+          if [ -d api ]; then
+            cp -R api dist/api
+          fi
+
           if [ -d surface-preview ]; then
             cp -R surface-preview dist/surface-preview
           fi
@@ -52,6 +56,11 @@ jobs:
           test -f dist/readyz
           test -f dist/version
           test -f dist/openapi.json
+          test -f dist/api/capabilities
+          test -f dist/api/law
+          test -f dist/api/state
+          test -f dist/api/receipt/example-0001
+          test -f dist/api/verdict/example-0001
           grep -Fx "api.verifrax.net" dist/CNAME
 
       - uses: actions/upload-pages-artifact@v3
