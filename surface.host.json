@@ -4,7 +4,7 @@
   "hostClass": "tool",
   "role": "api",
   "title": "VERIFRAX API",
-  "description": "Canonical execution host for bounded VERIFRAX runtime access. This surface exposes execution-host access only. It does not publish proof, determine verification truth, issue authority, operate archive retrieval, or accept intake.",
+  "description": "Canonical API host boundary for the VERIFRAX public perimeter. This surface exposes API-host identity and bounded tool access only. It does not constitute governed execution, publish proof, determine verification truth, issue authority, operate archive retrieval, or accept intake.",
   "deployMode": "static-root",
   "adjacentHosts": {
     "Execution": "https://api.verifrax.net",

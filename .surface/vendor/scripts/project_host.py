@@ -19,7 +19,7 @@ CLASS_RULES = {
     "tool": [
         "One host. One active function.",
         "Tool surfaces may expose operator or machine-adjacent affordances without claiming adjacent-host authority.",
-        "Execution, verification, intake, and status are not interchangeable."
+        "API host access, governed execution, verification, intake, and status are not interchangeable."
     ],
     "reference": [
         "Reference surfaces explain, publish, or preserve bounded material.",
