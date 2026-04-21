@@ -30,5 +30,21 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "files": [
+    "package.json",
+    "LICENSE",
+    "README.md",
+    "action",
+    "adapters",
+    "api",
+    "badges",
+    "core",
+    "edge-spec-worker",
+    "evidence/current",
+    "healthz",
+    "openapi.json",
+    "readyz",
+    "version"
+  ]
 }
