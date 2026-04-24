@@ -1,6 +1,6 @@
 # VERIFRAX-API
 
-* License: GNU General Public License v3.0
+* License: GNU Affero General Public License v3.0
 
 Package: @verifrax/verifrax-api
 Binary: verifrax-seal
@@ -157,7 +157,7 @@ VERIFRAX-API is not intake.
 
 ## License
 
-This repository is licensed under the GNU General Public License v3.0. See `LICENSE`.
+This repository is licensed under the GNU Affero General Public License v3.0. See `LICENSE`.
 
 ## Adjacent chamber surfaces
 
