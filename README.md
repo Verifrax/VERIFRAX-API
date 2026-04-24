@@ -1,5 +1,7 @@
 # VERIFRAX-API
 
+* License: GNU General Public License v3.0
+
 Package: @verifrax/verifrax-api
 Binary: verifrax-seal
 Repository: Verifrax/VERIFRAX-API
@@ -34,8 +36,6 @@ This repository is part of the VERIFRAX governed API-host perimeter.
 * Role: api
 * Deploy mode: static-root
 * Repository posture: public host implementation surface
-* License: Apache License Version 2.0
-
 ## Boundary
 
 This repository owns API-host identity and deployment boundary only.
@@ -157,7 +157,7 @@ VERIFRAX-API is not intake.
 
 ## License
 
-Apache License Version 2.0
+This repository is licensed under the GNU General Public License v3.0. See `LICENSE`.
 
 ## Adjacent chamber surfaces
 
