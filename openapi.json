@@ -3,7 +3,7 @@
   "info": {
     "title": "VERIFRAX API",
     "version": "2.2.0",
-    "description": "Canonical execution API surface for api.verifrax.net"
+    "description": "Canonical API and machine-access surface for api.verifrax.net; not governed execution of record."
   },
   "servers": [
     {
@@ -32,6 +32,12 @@
                       "type": "string"
                     },
                     "live": {
+                      "type": "boolean"
+                    },
+                    "boundary": {
+                      "type": "string"
+                    },
+                    "not_governed_execution_of_record": {
                       "type": "boolean"
                     }
                   },
@@ -70,6 +76,12 @@
                     },
                     "live": {
                       "type": "boolean"
+                    },
+                    "boundary": {
+                      "type": "string"
+                    },
+                    "not_governed_execution_of_record": {
+                      "type": "boolean"
                     }
                   },
                   "required": [
@@ -92,9 +104,29 @@
           "200": {
             "description": "version",
             "content": {
-              "text/plain": {
+              "application/json": {
                 "schema": {
-                  "type": "string"
+                  "type": "object",
+                  "properties": {
+                    "runtime": {
+                      "type": "string"
+                    },
+                    "verifier_version": {
+                      "type": "string"
+                    },
+                    "payment_status": {
+                      "type": "string"
+                    },
+                    "api_contract_version": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "runtime",
+                    "verifier_version",
+                    "payment_status",
+                    "api_contract_version"
+                  ]
                 }
               }
             }
@@ -199,7 +231,7 @@
     },
     "/api/receipt/example-0001": {
       "get": {
-        "operationId": "receiptProjection",
+        "operationId": "receiptExampleProjection",
         "responses": {
           "200": {
             "description": "receipt projection"
@@ -209,7 +241,7 @@
     },
     "/api/verdict/example-0001": {
       "get": {
-        "operationId": "verdictProjection",
+        "operationId": "verdictExampleProjection",
         "responses": {
           "200": {
             "description": "verdict projection"
